@@ -353,7 +353,7 @@ After we run this update, we need to <b>restart the nodes</b> and wait an epoch 
     <b>*** THIS IS CURRENTLY NOT WORKING - PLEASE SEE <a href="https://github.com/input-output-hk/cardano-node/issues/2972">[2972]</a> ***</b><br><br> Now we will be running <code>update-5.sh</code>. This update will bring us into the Alonzo era<br>
 This update needs to be run with the current epoch as a variable (find the epoch by running a query tip & Sometimes you need to choose the next era for it to work...):<br><br>
     
-<code>./update-4.sh (epoch)</code><br><br>
+<code>./update-5.sh (epoch)</code><br><br>
 
 This script will:<br><br>
 - This script will initiate the transition to protocol version 5 (Alonzo).<br><br>
