@@ -67,7 +67,14 @@ cardano-cli transaction submit --tx-file tx4.tx --testnet-magic 42
 
 sed -i configuration.yaml \
     -e 's/LastKnownBlockVersion-Major: 4/LastKnownBlockVersion-Major: 5/' \
+    
+# copy orignal configuration file to new location
 
+cp configuration.yaml configurationOld.yaml
+
+# copy alonzo configuration file to main configuration file
+
+cp alonzo-white-config.yaml configuration.yaml
 
 popd
 
