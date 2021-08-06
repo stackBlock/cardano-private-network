@@ -72,7 +72,11 @@ if ! mkdir "${ROOT}"; then
   exit
 fi
 
-# copy and tweak the configuration
+# copy the alonzo configuration file over for later use
+
+cp alonzo-white-config.yaml ${ROOT}/
+
+# copy and tweak the byron configuration file
 cp configuration.yaml ${ROOT}/
 sed -i ${ROOT}/configuration.yaml \
     -e 's/Protocol: RealPBFT/Protocol: Cardano/' \
