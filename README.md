@@ -277,7 +277,7 @@ this should give information on the chain and if all looks good, you should be i
 </code>
 </pre><br><br>
 
-Now  you can run the first update:<br><br>
+<b> Wait until you reach epoch:1 then </b> you can run the first update:<br><br>
 
 <code>./update-1.sh</code><br><br>
 
