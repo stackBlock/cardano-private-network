@@ -106,7 +106,7 @@ echo "third done"
 cardano-cli transaction submit --tx-file tx2.tx --testnet-magic 42
 
 sed -i configuration.yaml \
-    -e 's/LastKnownBlockVersion-Major: 2/LastKnownBlockVersion-Major: 3/' \
+    -e 's/LastKnownBlockVersion-Major: 1/LastKnownBlockVersion-Major: 3/' \
 
 
 popd
