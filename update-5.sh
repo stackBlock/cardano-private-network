@@ -20,8 +20,8 @@ EPOCH=$1
 VERSION=5
 
 ROOT=example
-COINS_IN_INPUT=10018000000
-
+COINS_IN_INPUT1=500000008998563
+COINS_IN_INPUT2=500000008998563
 pushd ${ROOT}
 
 # export CARDANO_NODE_SOCKET_PATH=node-pool1/node.sock
@@ -43,11 +43,11 @@ cardano-cli governance create-update-proposal \
 
 cardano-cli transaction build-raw \
             --mary-era \
-            --fee 0 \
+            --fee 603 \
             --tx-in $TXID2#0\
             --tx-in $TXID2#1\
-            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT} / 2)) \
-            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT} / 2)) \
+            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT1})) \
+            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT2})) \
             --update-proposal-file update-proposal-alonzo \
             --out-file tx4.txbody
 
@@ -67,14 +67,14 @@ cardano-cli transaction submit --tx-file tx4.tx --testnet-magic 42
 
 sed -i configuration.yaml \
     -e 's/LastKnownBlockVersion-Major: 4/LastKnownBlockVersion-Major: 5/' \
-    
+
 # copy orignal configuration file to new location
 
-cp configuration.yaml configurationOld.yaml
+# cp configuration.yaml configurationOld.yaml
 
 # copy alonzo configuration file to main configuration file
 
-cp alonzo-white-config.yaml configuration.yaml
+# cp alonzo-white-config2.yaml configuration.yaml
 
 popd
 
