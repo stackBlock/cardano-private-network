@@ -214,6 +214,8 @@ cd $NODE_HOME
 git clone https://github.com/stackBlock/cardano-private-network
 cd cardano-private-network
 
+chmod +x mkfiles.sh update-1.sh update-3.sh update-4.sh update-5.sh
+
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/cardano-private-network/example/node-bft1/node.sock" >> $HOME/.bashrc
 source $HOME/.bashrc
 
