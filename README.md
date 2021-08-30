@@ -127,7 +127,7 @@ Included in these scripts that we use to get the chain going and to progress thr
 <h2 id="node-already-installed"> :diamond_shape_with_a_dot_inside: Node installed</h2>
 
 <p align="justify"> 
-  If you already have a node installed, you will need checkout the current Cardano Alonzo node version (currently white version 1.1) and adjust some of your variables like the node socket, etc. If you look at the update scripts, you will see that it needs to be set to the node-pool1/node.sock (if you keep the variables set as is) - there may be some other small changes depending on your setup. <br><br><br>
+  If you already have a node installed, you will need checkout the current Cardano Alonzo node version (currently white version <b>1.29.0 commit 4c59442958072657812c6c0bb8e0b4ab85ce1ba2</b> ) and adjust some of your variables like the node socket, etc. If you look at the update scripts, you will see that it needs to be set to the node-pool1/node.sock (if you keep the variables set as is) - there may be some other small changes depending on your setup. <br><br><br>
 </p>
 
 <h2 align="center"> Starting From Scratch </h2>
