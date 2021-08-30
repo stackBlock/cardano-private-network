@@ -192,7 +192,7 @@ cd $HOME/git
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 git fetch --all --recurse-submodules --tags
-git checkout acefba14ef54235ab43105b421754065152da165
+git checkout 4c59442958072657812c6c0bb8e0b4ab85ce1ba2
 
 cabal configure -O0 -w ghc-8.10.4
 
