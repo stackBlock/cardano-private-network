@@ -240,6 +240,7 @@ source $HOME/.bashrc
  After the mkfiles.sh runs, it will create a directory called <code>example </code>.
   
   cd into <code>example</code> and then into the <code>run</code> directory.<br><br>
+  <code>cd example/run</code>
   
   Once in the <code>run</code> directory you have a few options. You can run <code>all.sh</code> in order to start all the nodes.<br><br>
   
