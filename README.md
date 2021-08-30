@@ -50,13 +50,13 @@
 
 <p align="justify"> 
  The aim of this repository is to get a chain running that is updated to the current Cardano version. <br>
-<p> <b>- This chain is still a work in process - It is not updating past Mary. There is an error after the update from Mary to Alonzo is called in the 4th update. There are two bug issues currently open with IOHK at the cardano node github, <a href="https://github.com/input-output-hk/cardano-node/issues/2971)">2971</a> and <a href="https://github.com/input-output-hk/cardano-node/issues/2972)">2972</a></b></p>
+<p> <b>- This chain is still a work in process - It is working but there are two bug issues currently open with IOHK (that I would like official answers for) at the cardano node github, <a href="https://github.com/input-output-hk/cardano-node/issues/2971)">2971</a> and <a href="https://github.com/input-output-hk/cardano-node/issues/2972)">2972</a></b></p>
 
 <b><a href="https://github.com/input-output-hk/cardano-node/issues/2971">- [2971]</a> - This is an issue with the wrong amount of lovelace being processed in 3 of the updates. I was able to fix / get it to work, but I am hoping to get an answer from IOHK as to why it didn't work and if my fix was correct<br><br>
 
-<a href="https://github.com/input-output-hk/cardano-node/issues/2972">- [2972]</a> - This is because the upgrade to Alonzo from Mary is failing - There is also a command within the update that references a file that was not created / doesn't exist. I have not been able to fix this on my own and have not be able to get any help from IOHK as of this writing. </b><br><br>
+<a href="https://github.com/input-output-hk/cardano-node/issues/2972">- [2972]</a> - This is because the upgrade to Alonzo from Mary was failing - There is also a command within the update that references a file that was not created / doesn't exist. I have been able to fix this on my own and have but would like to know why this was happening so that I am sure that I used best practices. </b><br><br>
 
- <p>The blockchain is built by running a series of (slightly modified) scripts from IOHK. IOHK allows you to build the chain in different ways. The way we choose to build the chain is by first starting a Byron network and then calling a series of 4 updates that will bring the system from Byron to Alonzo (although there is still an error getting all the way to Alonzo). Along with moving the blockchain through to Alonzo, the scripts also transfer ada to a Shelly wallet / node for use with block production and creates a block producing node. 
+ <p>The blockchain is built by running a series of (slightly modified) scripts from IOHK. IOHK allows you to build the chain in different ways. The way we choose to build the chain is by first starting a Byron network and then calling a series of 4 updates that will bring the system from Byron to Alonzo. Along with moving the blockchain through to Alonzo, the scripts also transfer ada to a Shelly wallet / node for use with block production and creates a block producing node. 
 </p>
 </p>
 
