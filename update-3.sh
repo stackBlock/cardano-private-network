@@ -22,8 +22,8 @@ EPOCH=$1
 VERSION=3
 
 ROOT=example
-COINS_IN_INPUT=10018000000
-
+COINS_IN_INPUT1=500000008999166
+COINS_IN_INPUT2=500000008999166
 pushd ${ROOT}
 
 # export CARDANO_NODE_SOCKET_PATH=node-bft1/node.sock
@@ -64,12 +64,12 @@ echo "first done"
 
 cardano-cli transaction build-raw \
             --shelley-era \
-            --invalid-hereafter 100000 \
-            --fee 0 \
+            --invalid-hereafter 1000000 \
+            --fee 1668 \
             --tx-in ${TXID0}#0\
             --tx-in ${TXID1}#0\
-            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT} / 2)) \
-            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT} / 2)) \
+            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT1})) \
+            --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT2})) \
             --certificate-file addresses/pool-owner1-stake.reg.cert \
             --certificate-file node-pool1/registration.cert \
             --certificate-file addresses/user1-stake.reg.cert \
