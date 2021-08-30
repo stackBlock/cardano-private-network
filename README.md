@@ -247,6 +247,16 @@ source $HOME/.bashrc
   <code>./all.sh</code><br><br>
   
   Or you can start the individual nodes in different terminals. <br><br>
+	
+<b>After you start the nodes, you need to open a new terminal to continue and update the era's (next section).</b><br><br>
+	
+Try to query the tip a few times and make sure everything is running and blocks are being made:<br><br>
+	<code>cardano-cli query tip --testnet-magic 42</code>
+
+If block production stopped or never started then go back to the cardano-private-network directory and delete the example folder:
+
+<code>rm -r -f example/</code><br><br>
+Start back at the beginning of this section with <code>./mkfiles.sh</code>
   
 </p>
 
@@ -271,16 +281,18 @@ this should give information on the chain and if all looks good, you should be i
 <pre>
 <code>
 {
-    "epoch": 0,
-    "hash": "1d3c5ee3265e2aef1a4e8a94b95638257244ccd0b3b015c634599b5cacc8b1be",
-    "slot": 61,
-    "block": 62,
-    "era": "Byron"
+    "epoch": 1,
+    "hash": "1fcbdb7ff6dfe9ed3bd0946314ed95a7cede30efde8fa1087789dccbea26d712",
+    "slot": 181,
+    "block": 182,
+    "era": "<b>Byron</b>",
+    "syncProgress": "100.00"
 }
 </code>
 </pre><br><br>
 
 <b> Wait until you reach epoch:1 then </b> you can run the first update:<br><br>
+	  (be sure you are in the cardano-private-network directory)
 
 <code>./update-1.sh</code><br><br>
 
@@ -294,10 +306,11 @@ Wait a few epochs and check query the tip again - You should now be in the <b>Sh
 <code>
 {
     "epoch": 3,
-    "hash": "6860b93ac8da95df813fda583cb46335652073955be2eb9465cdc48ed113a706",
-    "slot": 2128,
-    "block": 336,
-    "era": "Shelley"
+    "hash": "0bc8a1b92b7da44d4b7f392015660139212c25d92d4f40dac04d5a5c748a8d2f",
+    "slot": 642,
+    "block": 325,
+    "era": "<b>Shelley</b>",
+    "syncProgress": "100.00"
 }
 </code>
 </pre><br><br>
@@ -313,16 +326,17 @@ This script will:<br><br>
 - This script will initiate the transition to protocol version 3 (Allegra).<br>
 - It will also set up a working stake pool (including delegating to it).<br><br>
 
-After we run this update, we need to <b>restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Allegra</b> era:<br><br>
+After we run this update, we need to <b>stop and restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Allegra</b> era:<br><br>
 
  <pre>
 <code>
 {
-    "epoch": 7,
-    "hash": "e7fd2e60d0cbfd46611ef6847ea1a3f40404852736133c58f9b74de8058aeffe",
-    "slot": 9142,
-    "block": 819,
-    "era": "Allegra"
+    "epoch": 4,
+    "hash": "ae5bdac030b56776bd95c377b865deb37d172b9c2e4e0dbb8cbc205a06bd9a7a",
+    "slot": 1857,
+    "block": 405,
+    "era": "<b>Allegra</b>",
+    "syncProgress": "100.00"
 }
 </code>
 </pre><br><br>
@@ -338,22 +352,23 @@ This update needs to be run with the current epoch as a variable (find the epoch
 This script will:<br><br>
 - This script will initiate the transition to protocol version 4 (Mary)<br><br>
 
-After we run this update, we need to <b>restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Mary</b> era:<br><br>
+After we run this update, we need to <b>stop and restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Mary</b> era:<br><br>
 
  <pre>
 <code>
 {
-    "epoch": 12,
-    "hash": "23397e47940238d75834865dc8abadd5f28e8c138cf2d60f1cad384d05d696da",
-    "slot": 15371,
-    "block": 1427,
-    "era": "Mary"
+    "epoch": 5,
+    "hash": "08954f4b4cdc6bcb6e20daebdf7623b196b767ecd61f129d85f48075e9b9915e",
+    "slot": 4071,
+    "block": 561,
+    "era": "<b>Mary</b>",
+    "syncProgress": "100.00"
 }
 </code>
 </pre><br><br>
   </li>
   <li>
-    <b>*** THIS IS CURRENTLY NOT WORKING - PLEASE SEE <a href="https://github.com/input-output-hk/cardano-node/issues/2972">[2972]</a> ***</b><br><br> Now we will be running <code>update-5.sh</code>. This update will bring us into the Alonzo era<br>
+    Now we will be running <code>update-5.sh</code>. This update will bring us into the Alonzo era<br>
 This update needs to be run with the current epoch as a variable (find the epoch by running a query tip & Sometimes you need to choose the next era for it to work...):<br><br>
     
 <code>./update-5.sh (epoch)</code><br><br>
@@ -361,12 +376,17 @@ This update needs to be run with the current epoch as a variable (find the epoch
 This script will:<br><br>
 - This script will initiate the transition to protocol version 5 (Alonzo).<br><br>
 
-After we run this update, we need to <b>restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Alonzo</b> era:<br><br>
+After we run this update, we need to <b>stop and restart the nodes</b> and wait an epoch or two, and you will see that we are in the <b>Alonzo</b> era:<br><br>
 
  <pre>
 <code>
 {
-
+    "epoch": 7,
+    "hash": "270188fee4acee9b0d6c0d9d3b03d41ec8025e7ed647d6aff33a17b87f783331",
+    "slot": 6700,
+    "block": 821,
+    "era": "<b>Alonzo</b>",
+    "syncProgress": "100.00"
 }
 </code>
 </pre><br><br>
