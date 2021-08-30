@@ -50,7 +50,8 @@ POOL_NODES="node-pool1"
 
 ALL_NODES="${BFT_NODES} ${POOL_NODES}"
 
-INIT_SUPPLY=10020000000
+INIT_SUPPLY=1000000020000000
+# INIT_SUPPLY=30000000000000000
 FUNDS_PER_GENESIS_ADDRESS=$((${INIT_SUPPLY} / ${NUM_BFT_NODES}))
 FUNDS_PER_BYRON_ADDRESS=$((${FUNDS_PER_GENESIS_ADDRESS} - 1000000))
 # We need to allow for a fee to transfer the funds out of the genesis.
@@ -74,20 +75,20 @@ fi
 
 # copy the alonzo configuration file over for later use
 
-cp alonzo-white-config.yaml ${ROOT}/
+# cp alonzo-white-config2.yaml ${ROOT}/
 
 # copy and tweak the byron configuration file
 cp configuration.yaml ${ROOT}/
-sed -i ${ROOT}/configuration.yaml \
-    -e 's/Protocol: RealPBFT/Protocol: Cardano/' \
-    -e '/Protocol/ aPBftSignatureThreshold: 0.6' \
-    -e 's/minSeverity: Info/minSeverity: Debug/' \
-    -e 's|GenesisFile: genesis.json|ByronGenesisFile: byron/genesis.json|' \
-    -e '/ByronGenesisFile/ aShelleyGenesisFile: shelley/genesis.json' \
-    -e '/ByronGenesisFile/ aAlonzoGenesisFile: shelley/genesis.alonzo.json' \
-    -e 's/RequiresNoMagic/RequiresMagic/' \
-    -e 's/LastKnownBlockVersion-Major: 0/LastKnownBlockVersion-Major: 1/' \
-    -e 's/LastKnownBlockVersion-Minor: 2/LastKnownBlockVersion-Minor: 0/'
+# sed -i ${ROOT}/configuration.yaml \
+#    -e 's/Protocol: RealPBFT/Protocol: Cardano/' \
+#    -e '/Protocol/ aPBftSignatureThreshold: 0.6' \
+#    -e 's/minSeverity: Info/minSeverity: Debug/' \
+#    -e 's|GenesisFile: genesis.json|ByronGenesisFile: byron/genesis.json|' \
+#    -e '/ByronGenesisFile/ aShelleyGenesisFile: shelley/genesis.json' \
+#    -e '/ByronGenesisFile/ aAlonzoGenesisFile: shelley/genesis.alonzo.json' \
+#    -e 's/RequiresNoMagic/RequiresMagic/' \
+#    -e 's/LastKnownBlockVersion-Major: 0/LastKnownBlockVersion-Major: 1/' \
+#    -e 's/LastKnownBlockVersion-Minor: 2/LastKnownBlockVersion-Minor: 0/'
 # Options for making it easier to trigger the transition to Shelley
 # If neither of those are used, we have to
 # - post an update proposal + votes to go to protocol version 1
@@ -293,6 +294,10 @@ echo "====================================================================="
 
 # Set up our template
 mkdir shelley
+
+# move over alonzo file to shelly directory
+# cp shelley_qa_cost-model.json ${ROOT}/shelley/alonzo/costmodel.json
+
 cardano-cli genesis create --testnet-magic 42 --genesis-dir shelley
 
 # Then edit the genesis.spec.json ...
@@ -305,7 +310,7 @@ sed -i shelley/genesis.spec.json \
     -e 's/"activeSlotsCoeff": 5.0e-2/"activeSlotsCoeff": 0.1/' \
     -e 's/"securityParam": 2160/"securityParam": 10/' \
     -e 's/"epochLength": 432000/"epochLength": 1500/' \
-    -e 's/"maxLovelaceSupply": 0/"maxLovelaceSupply": 1000000000000/' \
+    -e 's/"maxLovelaceSupply": 0/"maxLovelaceSupply": 10000000000000000/' \
     -e 's/"decentralisationParam": 1.0/"decentralisationParam": 0.7/' \
     -e 's/"major": 0/"major": 2/' \
     -e 's/"updateQuorum": 5/"updateQuorum": 2/'
@@ -539,6 +544,9 @@ echo "" >> run/all.sh
 echo "wait" >> run/all.sh
 
 chmod a+x run/all.sh
+
+# copy current alonz genisis file over
+cp ../genesis.alonzo.json shelley/
 
 echo
 echo "Alternatively, you can run all the nodes in one go:"
