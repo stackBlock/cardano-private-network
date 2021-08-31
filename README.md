@@ -106,7 +106,7 @@ Included in these scripts that we use to get the chain going and to progress thr
   </li>
   <li>
     <p align="justify"> 
-      update-5.sh - The fourth update transitions to protocol version 5 -<b>Alonzo</b>. <B>The Alonzo update is currently not working. </B>
+      update-5.sh - The fourth update transitions to protocol version 5 -<b>Alonzo</b>.
     </p>
   </li>
 </ol>
