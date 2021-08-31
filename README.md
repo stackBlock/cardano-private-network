@@ -138,7 +138,7 @@ Included in these scripts that we use to get the chain going and to progress thr
 <p align="justify"> 
   The code below should get you a working node on a clean Linux Ubuntu machine. I used it on AWS instances with Ubuntu 20.04. <br>
   The Cardano Node version it pulls down from IOHK is Alonzo White 1.1<br>
-  <b>These instructions are, In large part, courtesy of the  <a href="https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node">Coincashew</a> guide on setting up a node with changes in order to pull the Cardano Alonzo White Node.</b>
+  <b>These instructions are, In large part, courtesy of the  <a href="https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node">Coincashew</a> guide on setting up a node with changes in order to pull the Cardano Alonzo Node.</b>
 </p>
 
 <pre>
